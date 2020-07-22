@@ -1,0 +1,46 @@
+<div class="grid-container margin-0">
+    <div class="tablet:grid-col-10 grid-offset-1">
+        <div class="sds-card">
+            <!--<div class="sds-card__header">
+                <h2>
+                    <a class="usa-link">SDS Card</a>
+                </h2>
+               <div class="sds-card__header-actions">
+                    <button class="usa-button usa-button--outline" (click)="resetChat()">Start Over</button>
+                </div>
+            </div>-->
+
+            <div *ngFor="let msg of messages">
+                <div class="sds-card__content" [class.grid-col-6]="msg.type == 'user'" [class.grid-offset-6]="msg.type == 'user'" [class.grid-col-8]="msg.type == 'bot'">
+                    <div class="sds-statistics">
+                        <div class="statistic" [class.green]="msg.type == 'user'" [class.blue]="msg.type == 'bot'">
+                            <div class="label">{{msg.type == 'user' ? labelMyMessages : labelBotMessages}}</div>
+                            <div class="value"> <!-- TODO Somehow remove hover style from circular below -->
+                                <span class="circular padding-1 width-auto height-auto text-normal font-body-sm text-pre-wrap text-left" [innerHTML]="msg.text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="isLoading" class="grid-col-3 grid-offset-1 padding-top-5">
+                <fa-icon [icon]="['fas', 'spinner']" [spin]="true" size="2x"></fa-icon>
+                <span class="sr-only">Loading Bot Answer...</span>
+            </div>
+
+            <div class="sds-search grid-col-10 grid-offset-2 padding-top-5 padding-bottom-205 padding-left-205">
+                <form class="usa-search">
+                    <div role="search" class="search">
+                        <label class="usa-sr-only" for="chatbot-input">{{defaultChatPlaceholder}}</label>
+                        <input class="usa-input height-5 radius-left-pill" id="chatbot-input" type="search" name="chatbot" 
+                            placeholder="{{defaultChatPlaceholder}}" [(ngModel)]="userQuestion">
+                        <button class="usa-button height-5 radius-right-pill minw-5 maxw-10" (click)="addUserMessage()">
+                            {{sendButtonText}}
+                            <span class="usa-sr-only">{{sendButtonText}}</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

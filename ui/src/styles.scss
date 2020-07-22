@@ -1,0 +1,17 @@
+ 
+$theme-image-path: '~@gsa-sam/sam-styles/src/img';
+$theme-font-path: '~@gsa-sam/sam-styles/src/fonts';
+
+ 
+/* autoprefixer grid: autoplace */
+
+ 
+@import '~@angular/material/theming';
+@import "~@gsa-sam/sam-styles/src/stylesheets/sam.scss";
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+ @import '~@fortawesome/fontawesome-svg-core/styles.css';
+ 
+.usa-fieldset {
+ font-size: 1rem;
+}

@@ -1,0 +1,150 @@
+<!-- https://federalist-proxy.app.cloud.gov/site/gsa/sam-styles/components/detail/page-with-sidebar.html -->
+<!--
+<div class="usa-banner">
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <span class="usa-banner__header-flag"></span>
+                </div>
+                <div class="grid-col-fill tablet:grid-col-auto">
+                    <p class="usa-banner__header-text">An official website of the United States government</p>
+                    <p class="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
+                </div>
+                <button class="usa-accordion__button usa-banner__button" aria-expanded="false"
+                    aria-controls="gov-banner">
+                    <span class="usa-banner__button-text">Here’s how you know</span>
+                </button>
+            </div>
+        </header>
+        <div class="usa-banner__content usa-accordion__content" id="gov-banner">
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <span class="usa-banner__icon usa-media-block__img"></span>
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>The .gov means it’s official.</strong>
+                            <br> Federal government websites often end in .gov or .mil. Before sharing sensitive
+                            information, make sure you’re on a federal government site.
+                        </p>
+                    </div>
+                </div>
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <span class="usa-banner__icon usa-media-block__img"></span>
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>The site is secure.</strong>
+                            <br> The <strong>https://</strong> ensures that you are connecting to the official website
+                            and that any information you provide is encrypted and transmitted securely.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header--extended">
+    <div class="usa-navbar">
+        <div class="usa-logo" id="sam-logo">
+
+            <a href="/" title="Home" aria-label="Home">
+                <img class="sds-header__logo" src="../../assets/images/logo-sam.svg" alt="Logo" />
+            </a>
+
+        </div>
+        <button class="usa-menu-btn">
+            <span class="fa-layers fa-fw fa-3x">
+                <!--<i class="fas fa-square text-primary"></i>-->
+                <fa-icon [icon]="['fas', 'square']" [classes]="['text-primary']"></fa-icon>
+                <!--<i class="sds fa-bars" data-fa-transform="shrink-6"></i>-->
+                <fa-icon [icon]="['sds', 'bars']" transform="shrink-6"></fa-icon>
+
+                <span class="fa-layers-counter"></span>
+
+            </span>
+            <span class="usa-sr-only">Menu</span>
+        </button>
+    </div>
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <div class="usa-nav__inner"><button class="usa-nav__close">
+                <div class="fa-lg">
+                    <span class="fa-layers fa-fw">
+                        <!--<i class="fa-inverse fas fa-circle" data-fa-transform="grow-2"></i>-->
+                        <fa-icon [icon]="['fas', 'circle']" [inverse]="true" transform="grow-2"></fa-icon>
+                        <!--<i class="fas fa-times" data-fa-transform="shrink-6"></i>-->
+                        <fa-icon [icon]="['fas', 'times']" transform="shrink-6"></fa-icon>
+                    </span>
+                </div>
+                <span class="usa-sr-only">Close</span>
+            </button>
+            <ul class="usa-nav__primary usa-accordion">
+                <li class="usa-nav__primary-item">
+                    <a class="usa-nav__link usa-current" href="javascript:void(0)"><span>Home</span></a>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <a class="usa-nav__link" href="javascript:void(0)"><span>Search</span></a>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <a class="usa-nav__link" href="javascript:void(0)"><span>Databank</span></a>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <a class="usa-nav__link" href="javascript:void(0)"><span>Data Services</span></a>
+                </li>
+                <li class="usa-nav__primary-item">
+                    <a class="usa-nav__link" href="javascript:void(0)"><span>Help</span></a>
+                </li>
+            </ul>
+            <div class="usa-nav__secondary">
+                <ul class="usa-nav__secondary-links">
+                    <li class="usa-nav__secondary-item">
+                        <a href="" class="usa-current">
+
+                            <span class="fa-layers fa-fw">
+                                <!--<i class="sds fa-request fa-flip-horizontal"></i>-->
+                                <fa-icon [icon]="['sds', 'request']" flip="horizontal"></fa-icon>
+                                <span class="fa-layers-counter"></span>
+                            </span>
+
+
+                            <span class="sds-nav__secondary-item-text">Request</span>
+                        </a>
+                    </li>
+                    <li class="usa-nav__secondary-item">
+                        <a href="">
+
+
+                            <!--<i class="sds fa-messages"></i>-->
+                            <fa-icon [icon]="['sds', 'messages']"></fa-icon>
+
+                            <span class="sds-nav__secondary-item-text">Messages</span>
+                        </a>
+                    </li>
+                    <li class="usa-nav__secondary-item">
+                        <a href="">
+
+
+                            <!--<i class="sds fa-workspace"></i>-->
+                            <fa-icon [icon]="['sds', 'workspace']"></fa-icon>
+
+                            <span class="sds-nav__secondary-item-text">Workspace</span>
+                        </a>
+                    </li>
+                    <li class="usa-nav__secondary-item">
+                        <a href="">
+
+
+                            <!--<i class="sds fa-log-out"></i>-->
+                            <fa-icon [icon]="['sds', 'log-out']"></fa-icon>
+
+                            <span class="sds-nav__secondary-item-text">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
