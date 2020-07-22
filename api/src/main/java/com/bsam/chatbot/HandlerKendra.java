@@ -1,28 +1,23 @@
 package com.bsam.chatbot;
 
+import java.util.Collections;
+
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.kendra.AWSkendra;
+import com.amazonaws.services.kendra.AWSkendraClientBuilder;
+import com.amazonaws.services.kendra.model.QueryRequest;
+import com.amazonaws.services.kendra.model.QueryResult;
+import com.amazonaws.services.kendra.model.QueryResultItem;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import software.amazon.awssdk.services.kendra.KendraClient;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.kendra.AWSkendra;
-import com.amazonaws.services.kendra.AWSkendraClientBuilder;
-import com.amazonaws.services.kendra.model.AdditionalResultAttribute;
-import com.amazonaws.services.kendra.model.QueryRequest;
-import com.amazonaws.services.kendra.model.QueryResult;
-import com.amazonaws.services.kendra.model.QueryResultItem;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.Collections;
 
 public class HandlerKendra implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
@@ -41,16 +36,14 @@ public class HandlerKendra implements RequestHandler<APIGatewayProxyRequestEvent
         logger.log("EVENT: " + gson.toJson(input));
         logger.log("EVENT TYPE: " + input.getClass().toString());
 
-        String response = null;
         String queryText = input.getQueryStringParameters().get("queryText");
-        String indexId = "b44f2d70-0554-4cbf-871a-9a88bbe04c7c";
         
         ResultJson resultJson = new ResultJson();
 		ObjectMapper obj = new ObjectMapper();
 		resultJson.setQuery(queryText);
 		try {
 //        KendraClient kendra = KendraClient.builder().build();
-        BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIASVX3YZPCVS32JD32", "RWDVm5YeqMHrzFMXrK67bt0jql6fwLrqIDRt1fWB");
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials(System.getenv().get("AWS_ACCESS_KEY_ID"), System.getenv().get("AWS_SECRET_KEY"));
 		AWSkendra kendra = AWSkendraClientBuilder.standard().withRegion("us-east-1")
 				.withCredentials(new AWSStaticCredentialsProvider(awsCreds)).build();
 
@@ -71,8 +64,6 @@ public class HandlerKendra implements RequestHandler<APIGatewayProxyRequestEvent
 	                .withBody(obj.writeValueAsString(resultJson));
 		}
 		
-		String firstResultType = results.getResultItems().get(0).getType();
-
 		for(QueryResultItem type : results.getResultItems()) {
 
 
