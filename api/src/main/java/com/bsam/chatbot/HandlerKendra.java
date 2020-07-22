@@ -5,12 +5,22 @@ import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import software.amazon.awssdk.services.kendra.KendraClient;
-import software.amazon.awssdk.services.kendra.model.QueryRequest;
-import software.amazon.awssdk.services.kendra.model.QueryResponse;
-import software.amazon.awssdk.services.kendra.model.QueryResultItem;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.kendra.AWSkendra;
+import com.amazonaws.services.kendra.AWSkendraClientBuilder;
+import com.amazonaws.services.kendra.model.AdditionalResultAttribute;
+import com.amazonaws.services.kendra.model.QueryRequest;
+import com.amazonaws.services.kendra.model.QueryResult;
+import com.amazonaws.services.kendra.model.QueryResultItem;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Collections;
 
@@ -22,6 +32,7 @@ public class HandlerKendra implements RequestHandler<APIGatewayProxyRequestEvent
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context) {
 
         LambdaLogger logger = context.getLogger();
+       
 
         // log execution details
         logger.log("ENVIRONMENT VARIABLES: " + gson.toJson(System.getenv()));
@@ -30,25 +41,112 @@ public class HandlerKendra implements RequestHandler<APIGatewayProxyRequestEvent
         logger.log("EVENT: " + gson.toJson(input));
         logger.log("EVENT TYPE: " + input.getClass().toString());
 
-        KendraClient kendra = KendraClient.builder().build();
-
         String response = null;
-        String query = input.getQueryStringParameters().get("queryText");
+        String queryText = input.getQueryStringParameters().get("queryText");
         String indexId = "b44f2d70-0554-4cbf-871a-9a88bbe04c7c";
+        
+        ResultJson resultJson = new ResultJson();
+		ObjectMapper obj = new ObjectMapper();
+		resultJson.setQuery(queryText);
+		try {
+//        KendraClient kendra = KendraClient.builder().build();
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIASVX3YZPCVS32JD32", "RWDVm5YeqMHrzFMXrK67bt0jql6fwLrqIDRt1fWB");
+		AWSkendra kendra = AWSkendraClientBuilder.standard().withRegion("us-east-1")
+				.withCredentials(new AWSStaticCredentialsProvider(awsCreds)).build();
 
-        QueryRequest queryRequest = QueryRequest
-                .builder()
-                .queryText(query)
-                .indexId(indexId)
-                .build();
 
-        QueryResponse queryResponse = kendra.query(queryRequest);
+		QueryRequest query = new QueryRequest();
+		query.setIndexId("b44f2d70-0554-4cbf-871a-9a88bbe04c7c");
+		query.setQueryText(queryText);
 
-        logger.log(String.format("\nSearch results for query: %s", query));
+
+		QueryResult results = kendra.query(query);
+
+        
+		if(results.getResultItems().size() == 0){
+			resultJson.setResultText("No Match Found");
+			return new APIGatewayProxyResponseEvent()
+	                .withStatusCode(200)
+	                .withHeaders(Collections.emptyMap())
+	                .withBody(obj.writeValueAsString(resultJson));
+		}
+		
+		String firstResultType = results.getResultItems().get(0).getType();
+
+		for(QueryResultItem type : results.getResultItems()) {
+
+
+			if("QUESTION_ANSWER".equals(type.getType())) {
+				String faqAnswerText = type.getDocumentExcerpt().getText();
+				resultJson.setResultText(faqAnswerText);
+				return new APIGatewayProxyResponseEvent()
+		                .withStatusCode(200)
+		                .withHeaders(Collections.emptyMap())
+		                .withBody(obj.writeValueAsString(resultJson));
+			}
+
+		}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+			resultJson.setResultText("Error");
+			try {
+				return new APIGatewayProxyResponseEvent()
+		                .withStatusCode(500)
+		                .withHeaders(Collections.emptyMap())
+		                .withBody(obj.writeValueAsString(resultJson));
+				
+			} catch (JsonProcessingException e1) {
+				System.out.println(e1);
+			}
+		}
+		
 
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
                 .withHeaders(Collections.emptyMap())
-                .withBody("{\"Kendra Response\":\"" + response + "\"}");
+                .withBody("{\"Kendra Response\":\"None\"}");
     }
+    
+    class ResultJson {
+		String query;
+		String resultText;
+		String documentLink;
+		String documentTitle;
+
+		public String getQuery() {
+			return query;
+		}
+
+		public void setQuery(String text) {
+			this.query = text;
+		}
+
+		public String getResultText() {
+			return resultText;
+		}
+
+		public void setResultText(String text) {
+			this.resultText = text;
+		}
+
+		public String getDocumentLink() {
+			return documentLink;
+		}
+
+		public void setDocumentLink(String link) {
+			this.documentLink = link;
+		}
+
+		public String getDocumentTitle() {
+			return documentTitle;
+		}
+
+		public void setDocumentTitle(String title) {
+			this.documentTitle = title;
+		}
+
+	}
+
 }
