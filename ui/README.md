@@ -1,6 +1,6 @@
-# beta.SAM Chatbot
+# Beta.SAM Chatbot
 
-The beta.SAM Chatbot is an Angular chatbot application which allows a user to ask a question and receive a chatbot response. Currently, the chatbot is configured to answer beta.SAM API related questions.
+The Beta.SAM Chatbot is an Angular chatbot application which allows a user to ask a question and receive a chatbot response. Currently, the chatbot is configured to answer Beta.SAM API related questions.
 
 ## Code Modularity
 
@@ -27,7 +27,7 @@ The chatbot component is **reusable** and **customizable** by allowing the follo
 
 The chatbot component requires a ChatbotService Input which provides the chatbot's response to the user's query.  The ChatbotService is an abstract class.  This allows any class that implements it to be used as the Chatbot Service in the Chatbot component, which provides **reusability** for the chatbot component.
 
-The beta.SAM chatbot implements a BSAMChatbotService which calls the Amazon Web Services (AWS) hosted API service.
+The Beta.SAM chatbot implements a BSAMChatbotService which calls the Amazon Web Services (AWS) hosted API service.
 
 ### Standards and Readability
 
