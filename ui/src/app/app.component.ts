@@ -17,7 +17,7 @@ export class AppComponent {
   // chatbot inputs
   chatbotService = new BSAMChatbotService(this.http);
   labelMyMessages = 'Me';
-  labelBotMessages = 'BSAM Bot';
+  labelBotMessages = 'SAM Bot';
   defaultChatPlaceholder = 'Ask me a question...';
   sendButtonText = 'Send';
   initialBotGreeting = '<b>Hello!</b> How can I help you today?';
