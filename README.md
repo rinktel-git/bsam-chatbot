@@ -73,6 +73,6 @@ Chatbot functionality can be expanded to include below :
 My registration status ?  What are the new contract opportunities ?, etc...
 2.	It can be integrated with other IAE systems like sam.gov, fpds.gov, etc.
 3.	It can be made available via mobile app.
-4. Documents to be searched against can be added dynamically by crawling, automatic ingestion, etc. 
+4. Documents to be searched against can be added dynamically by crawling, automatic ingestion, nosql DB, RDBMS etc. 
 
 
