@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Beta.SAM.Gov Public Location Services API | GSA Open Technology</title>
+  <meta name="description" content="Overview">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Beta.SAM.Gov Public Location Services API | GSA Open Technology" />
+  <meta name="twitter:title" content="Beta.SAM.Gov Public Location Services API | GSA Open Technology">
+  <meta property="og:url" content="https://open.gsa.gov/api/location-public-api/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://open.gsa.gov/assets/img/feature-background.jpg">
+  <meta name="twitter:image" content="https://open.gsa.gov/assets/img/feature-background.jpg">
+  <meta property="og:description" content="Overview">
+  <meta name="twitter:description" content="Overview">
+  <meta name="google-site-verification" content="1mdRfaEaI19uCixYkGGmRsv2iA_si1n44fNtk4jzixQ" />
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+  <link rel="canonical" href="https://open.gsa.gov/api/location-public-api/">
+
+  <script>
+    if (/^www\./.test(window.location.hostname)) {
+      window.location = window.location.href.replace('www.', '');
+    }
+  </script>
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <div id="header"><div class="skip-nav">
+    <a href="#content" class="skips">Skip to main content</a>
+</div>
+
+<header class="usa-header usa-header-extended" role="banner">
+  <!-- Gov banner BEGIN -->
+<div class="usa-banner">
+<div class="usa-accordion">
+  <header class="usa-banner-header">
+    <div class="usa-grid usa-banner-inner">
+    <img src="/assets/uswds/img/favicons/favicon-57.png" alt="U.S. flag">
+    <p>An official website of the United States government</p>
+    <button class="usa-accordion-button usa-banner-button"
+      aria-expanded="false" aria-controls="gov-banner">
+      <span class="usa-banner-button-text">Here's how you know</span>
+    </button>
+    </div>
+  </header>
+  <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+    <div class="usa-banner-guidance-gov usa-width-one-half">
+      <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-dot-gov.svg" alt="Dot gov">
+      <div class="usa-media_block-body">
+        <p>
+          <strong>The .gov means it’s official.</strong>
+          <br>
+          Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.
+        </p>
+      </div>
+    </div>
+    <div class="usa-banner-guidance-ssl usa-width-one-half">
+      <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-https.svg" alt="SSL">
+      <div class="usa-media_block-body">
+        <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Gov banner END -->
+    <nav class="usa-site-navbar">
+                    <div class="usa-grid top-nav">
+                        <div id="logo">
+                            <a href="/" accesskey="1" title="Home" aria-label="Home">
+          
+            <img class="header-logo" src="/assets/img/site-logo.png" alt="GSA Open Technology">
+          
+        </a>
+                        </div>
+                        <ul class="usa-nav-list usa-unstyled-list">
+                          <li class="usa-menu-item"><a href="/search.html"> <i class="fa fa-search"></i> Search</a></li>
+                          <li class="usa-menu-item"><a href="/data">Data</a></li>
+                          <li class="usa-menu-item"><a href="/api">APIs</a></li>
+                          <li class="usa-menu-item"><a href="/code">Code</a></li>
+                          <li class="usa-menu-item"><a href="/events">Events</a></li>
+                        </ul>
+                        <!-- <ul class="usa-nav-list usa-unstyled-list">
+                          <li class="usa-menu-item"><a href="/search"> <i class="fa fa-search"></i> Search</a></li>
+                                
+                            <li class="usa-menu-item">
+                                <a href="/data/">Data</a>
+                            </li>
+                              
+                            <li class="usa-menu-item">
+                                <a href="/api/">APIs</a>
+                            </li>
+                              
+                            <li class="usa-menu-item">
+                                <a href="/code/">Code</a>
+                            </li>
+                              
+                            <li class="usa-menu-item">
+                                <a href="/events/">Events</a>
+                            </li>
+                             
+                            </ul> -->
+
+                    </div>
+        <br/>
+
+    </nav>
+</header>
+</div>
+        <div id="content">
+  <section class="usa-section usa-section-dark banner-header">
+    <div class="usa-grid">
+        <div class="usa-width-one-whole usa-end-row">
+            <h2>Beta.SAM.Gov Public Location Services API</h2>  
+        </div>
+    </div>
+</section>
+
+
+
+<main class="usa-grid" id="main" tabindex="-1">
+  <section>
+    <aside class="usa-width-one-fourth sidebar-sticky" style="word-wrap: break-word;">
+  <ul class="usa-sidenav-list">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#getting-started">Getting Started</a>
+<ul class="usa-sidenav-sub_list">
+<li class="toc-entry toc-h3"><a href="#authorization">Authorization</a>
+<ul class="usa-sidenav-sub_list">
+<li class="toc-entry toc-h4"><a href="#generating-a-system-account-api-key">Generating a System Account API Key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#public-location-services-api-request-and-responses">Public Location Services API Request and Responses</a>
+<ul class="usa-sidenav-sub_list">
+<li class="toc-entry toc-h3"><a href="#look-up-cities">Look Up Cities</a></li>
+<li class="toc-entry toc-h3"><a href="#look-up-countries">Look Up Countries</a></li>
+<li class="toc-entry toc-h3"><a href="#look-up-states">Look Up States</a></li>
+<li class="toc-entry toc-h3"><a href="#validate-zip-code">Validate Zip Code</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#openapi-specification">OpenAPI Specification</a></li>
+<li class="toc-entry toc-h2"><a href="#http-response-codes">HTTP Response Codes</a></li>
+<li class="toc-entry toc-h2"><a href="#faq">FAQ</a></li>
+<li class="toc-entry toc-h2"><a href="#contact-us">Contact Us</a></li>
+<li class="toc-entry toc-h2"><a href="#change-log">Change Log</a></li>
+</ul>
+</aside>
+
+<div class="usa-width-three-fourths">
+  <h2 id="overview">Overview</h2>
+
+<p>The Public Location Services API provides Location Services data (Country, State, City, and ZIP) and is to be used when validating location data being submitted to Beta.SAM.gov ONLY. Beta.SAM is not the authoritative source for location data and is agglomerating data from 3rd parties to operate the application. Location Public Services API only supports United States currently.</p>
+
+<p><em>Note: If valid search parameter (e.g. searchby=statecode) from the options listed in the description is not provided, all records will be returned</em></p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Public Location Services API can be accessed from Beta or Alpha via the following endpoints:</p>
+<ul>
+  <li>Beta: https://api.sam.gov (Coming Soon)</li>
+  <li>Alpha: https://api-alpha.sam.gov</li>
+</ul>
+
+<h3 id="authorization">Authorization</h3>
+
+<p>In order to use Public Location Services API, the following is required:</p>
+<ul>
+  <li>Valid beta.SAM.GOV federal government system account API Key</li>
+</ul>
+
+<h4 id="generating-a-system-account-api-key">Generating a System Account API Key</h4>
+<ul>
+  <li>Users registered with a government email address and have appropriate System Account Manager or System Account Admin role may request a system account for data access.</li>
+  <li>If a user satisfies the above registration criteria they will be able to access the System Accounts widget from their Workspace page after logging in.</li>
+  <li>The user can then select “Request System Account” from the widget and fill out the required sections with appropriate Contract Opportunities permissions.</li>
+  <li>The requested system account will then need to be approved. After approval the user will be notified via email and they can also see the updated status in the System Account widget.</li>
+  <li>The user can select ‘Go to System Accounts’ in the widget from their workspace and enter a new system account password.</li>
+  <li>After setting up the password the user will see a new section for retrieving a system account API Key. The user must enter their password again to retrieve the key.</li>
+</ul>
+
+<h2 id="public-location-services-api-request-and-responses">Public Location Services API Request and Responses</h2>
+
+<h3 id="look-up-cities">Look Up Cities</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Request Type</strong></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>/locationservices/v1/cities</td>
+    </tr>
+    <tr>
+      <td><strong>Summary</strong></td>
+      <td>Get list of cities</td>
+    </tr>
+    <tr>
+      <td><strong>Consumes</strong></td>
+      <td>Request Parameters</td>
+    </tr>
+    <tr>
+      <td><strong>Produces</strong></td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Request Parameters</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter Name</th>
+      <th>Parameter Type</th>
+      <th>Data Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>api_key</td>
+      <td>query</td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Valid System Account API Key</td>
+    </tr>
+    <tr>
+      <td>cc</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the 3-digit Country Code to retrieve the cities within that Country <br /><br /> Example: <br /> United States: USA</td>
+    </tr>
+    <tr>
+      <td>searchby</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the search parameter to search city information: <br />- statecode <br /> - statename</td>
+    </tr>
+    <tr>
+      <td>searchvalue</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No (Yes if searchby is provided)</td>
+      <td>Enter the searchvalue for searchby parameter <br /><br /> Example: <br />statecode: VA <br /> statename: Virginia</td>
+    </tr>
+    <tr>
+      <td>q</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the City Name you want to retrieve information for. Note q also serves as general search</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>The active indicator specifies whether the city is active or inactive. Type “Y” for a list of active city names. Type “N” for a list of inactive city names</td>
+    </tr>
+    <tr>
+      <td>citycode</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the city code</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Responses</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Response Type</th>
+      <th>Reason</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>string</td>
+      <td>List of Opportunities</td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response Element</th>
+      <th>Response Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cityCode</td>
+      <td>string</td>
+      <td>City Code</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>string</td>
+      <td>City Name</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>JSON Array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>state.statecode</td>
+      <td>string</td>
+      <td>State Code</td>
+    </tr>
+    <tr>
+      <td>state.state</td>
+      <td>string</td>
+      <td>State Name</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>JSON Array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>country.country</td>
+      <td>string</td>
+      <td>Country Name</td>
+    </tr>
+    <tr>
+      <td>country.code2</td>
+      <td>string</td>
+      <td>Country Code 2</td>
+    </tr>
+    <tr>
+      <td>country.code</td>
+      <td>string</td>
+      <td>Country Code</td>
+    </tr>
+    <tr>
+      <td>href</td>
+      <td>URL</td>
+      <td>Link to the response</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note: Limit 1000 entries</em></p>
+
+<p>Example: Look up cities in Alabama</p>
+
+<p>https://api.sam.gov/locationservices/v1/cities?api_key=[Enter System Account Api Key]&amp;searchby=statecode&amp;searchvalue=AL</p>
+
+<details>
+<summary>Response</summary>
+<p>
+<code><pre>
+{
+    "_embedded": {
+        "cityList": [
+            {
+                "cityCode": "75960",
+                "city": "Thomasville",
+                "state": {
+                    "stateCode": "AL",
+                    "state": "Alabama",
+                    "country": {
+                        "country": "UNITED STATES",
+                        "countryCode2": "US",
+                        "countrycode": "USA"
+                    }
+                },
+                "_links": {
+                    "self": {
+                        "href": ""
+                    }
+                }
+            },
+            {
+</pre></code>
+</p>
+</details>
+
+<h3 id="look-up-countries">Look Up Countries</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Request Type</strong></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>/locationservices/v1/countries</td>
+    </tr>
+    <tr>
+      <td><strong>Summary</strong></td>
+      <td>Get list of countries</td>
+    </tr>
+    <tr>
+      <td><strong>Consumes</strong></td>
+      <td>Request Parameters</td>
+    </tr>
+    <tr>
+      <td><strong>Produces</strong></td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Request Parameters</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter Name</th>
+      <th>Parameter Type</th>
+      <th>Data Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>api_key</td>
+      <td>query</td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Valid System Account API Key</td>
+    </tr>
+    <tr>
+      <td>searchby</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the parameter to search the country information: <br /> - countryname <br />- iso2 <br />- iso3</td>
+    </tr>
+    <tr>
+      <td>q</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No (Yes if searchby is provided)</td>
+      <td>Enter the value of the parameter you typed for searchby <br /><br /> Example:<br /> countryname: United States <br /> iso2: US <br /> iso3: USA <br /><br /> If searchby is provided, q must have exact spelling to return valid results (ex. United States). If the searchby field is left blank, q would operate general search (ex. United)</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>The active indicator specifies whether the city is active or inactive. Type “Y” for a list of active city names. Type “N” for a list of inactive city names</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Responses</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Response Type</th>
+      <th>Reason</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>string</td>
+      <td>List of Opportunities</td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response Element</th>
+      <th>Response Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>country</td>
+      <td>string</td>
+      <td>Country Name</td>
+    </tr>
+    <tr>
+      <td>countryFullName</td>
+      <td>string</td>
+      <td>Full Name of Country</td>
+    </tr>
+    <tr>
+      <td>countryCode2</td>
+      <td>string</td>
+      <td>Country Code 2</td>
+    </tr>
+    <tr>
+      <td>countrycode</td>
+      <td>string</td>
+      <td>Country Code</td>
+    </tr>
+    <tr>
+      <td>href</td>
+      <td>URL Link to the response</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example: Look up countries that start with “South”</p>
+
+<p>https://api.sam.gov/locationservices/v1/countries?api_key=[Enter System Account Api Key]&amp;searchby=country&amp;q=south</p>
+
+<details>
+<summary>Response</summary>
+<p>
+<code><pre>
+{
+    "_embedded": {
+        "countryList": [
+            {
+                "country": "KOREA, SOUTH",
+                "countryFullName": "Republic of Korea",
+                "countryCode2": "KR",
+                "countrycode": "KOR",
+                "_links": {
+                    "self": {
+                        "href": ""
+                    }
+                }
+            }
+</pre></code>
+</p>
+</details>
+
+<h3 id="look-up-states">Look Up States</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Request Type</strong></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>/locationservices/v1/states</td>
+    </tr>
+    <tr>
+      <td><strong>Summary</strong></td>
+      <td>Get list of states</td>
+    </tr>
+    <tr>
+      <td><strong>Consumes</strong></td>
+      <td>Request Parameters</td>
+    </tr>
+    <tr>
+      <td><strong>Produces</strong></td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Request Parameters</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter Name</th>
+      <th>Parameter Type</th>
+      <th>Data Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>api_key</td>
+      <td>query</td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Valid System Account API Key</td>
+    </tr>
+    <tr>
+      <td>cc</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the 3-digit Country Code to retrieve the States within that Country <br /><br /> Example: <br /> United States: USA</td>
+    </tr>
+    <tr>
+      <td>searchby</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the search parameter to search the state information: <br /> - statecode <br /> - statename <br /> - statetype <br /></td>
+    </tr>
+    <tr>
+      <td>q</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No (Yes if searchby is provided)</td>
+      <td>Enter the value of the parameter for searchby <br /><br /> Example: <br /> statename: Virginia <br /> statecode: VA <br /> statetype: State (state types: State, Capital, Military, Minor Outlying Islands, Associated State, and Territory) <br /><br /> You can input multiple values for the parameter by separating the values by a comma (for example: if searchby is statetype, q could be Military, Capital. This would return the Military and Capital states). If the searchby field is left blank, q would operate as general search</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>The active indicator specifies whether the city is active or inactive. Type “Y” for a list of active city names. Type “N” for a list of inactive city names</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Responses</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Response Type</th>
+      <th>Reason</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>string</td>
+      <td>List of Opportunities</td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response Element</th>
+      <th>Response Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>statecode</td>
+      <td>string</td>
+      <td>State Code</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>string</td>
+      <td>State</td>
+    </tr>
+    <tr>
+      <td>stateType</td>
+      <td>string</td>
+      <td>State Type</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>JSON Array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>country.country</td>
+      <td>string</td>
+      <td>Country Name</td>
+    </tr>
+    <tr>
+      <td>country.countryFullName</td>
+      <td>string</td>
+      <td>Full Name of Country</td>
+    </tr>
+    <tr>
+      <td>country.countryCode2</td>
+      <td>string</td>
+      <td>Country Code 2</td>
+    </tr>
+    <tr>
+      <td>countrycode</td>
+      <td>string</td>
+      <td>Country Code</td>
+    </tr>
+    <tr>
+      <td>href</td>
+      <td>URL Link to the response</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example: Look up state of Virginia</p>
+
+<p>https://api.sam.gov/locationservices/v1/states?api_key=[Enter System Account Api Key]&amp;searchby=state&amp;q=VA</p>
+
+<details>
+<summary>Response</summary>
+<p>
+<code><pre>
+{
+       "_embedded": {
+        "stateList": [
+            {
+                "stateCode": "VA",
+                "state": "Virginia",
+                "stateType": "State",
+                "country": {
+                    "country": "UNITED STATES",
+                    "countryFullName": "United States of America",
+                    "countryCode2": "US",
+                    "countrycode": "USA"
+                },
+                "_links": {
+                    "self": {
+                        "href": ""
+                    }
+                }
+            }
+        ]
+    }
+}
+</pre></code>
+</p>
+</details>
+
+<h3 id="validate-zip-code">Validate Zip Code</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Request Type</strong></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td><strong>URL</strong></td>
+      <td>/locationservices/v1/zip</td>
+    </tr>
+    <tr>
+      <td><strong>Summary</strong></td>
+      <td>Validate Zip Code</td>
+    </tr>
+    <tr>
+      <td><strong>Consumes</strong></td>
+      <td>Request Parameters</td>
+    </tr>
+    <tr>
+      <td><strong>Produces</strong></td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Request Parameters</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter Name</th>
+      <th>Parameter Type</th>
+      <th>Data Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>api_key</td>
+      <td>query</td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Valid System Account API Key</td>
+    </tr>
+    <tr>
+      <td>zip</td>
+      <td>query</td>
+      <td>string</td>
+      <td>Yes</td>
+      <td>Enter the zip or zip plus 4 code</td>
+    </tr>
+    <tr>
+      <td>citycode</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the city code</td>
+    </tr>
+    <tr>
+      <td>countycode</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the county code</td>
+    </tr>
+    <tr>
+      <td>statecode</td>
+      <td>query</td>
+      <td>string</td>
+      <td>No</td>
+      <td>Enter the state code</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Responses</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Response Type</th>
+      <th>Reason</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>string</td>
+      <td>List of Opportunities</td>
+      <td>JSON</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response Element</th>
+      <th>Response Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>zipCode</td>
+      <td>string</td>
+      <td>Zip Code</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>string</td>
+      <td>Status of Zip (Valid or Invalid)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example: Look up whether 36310 is a valid zip</p>
+
+<p>https://api.sam.gov/locationservices/v1/zip?api_key=[Enter System Account Api Key]&amp;zip=36310</p>
+
+<details>
+<summary>Response</summary>
+<p>
+<code><pre>
+{
+       "zipCode": "36310"
+       "description": "Valid Zip"
+}
+</pre></code>
+</p>
+</details>
+
+<h2 id="openapi-specification">OpenAPI Specification</h2>
+
+<p>You can view the full details of this API in the OpenAPI Specification file available here:
+<a href="v1/location.yml" download="location">OpenAPI File</a></p>
+
+<details>
+<summary>Look Up Cities</summary>
+<p>
+<code><pre>
+/locationservices/v1/cities:
+    get:
+      tags:
+        - locationservices
+      summary: 'API to get a list of cities'
+      operationId: getlocationserviceslookupcities
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        -
+          name: api_key
+          in: query
+          description: api_key
+          required: true
+          type: string
+        -
+          name: cc
+          in: query
+          description: cc
+          required: false
+          type: string
+        -
+          name: searchby
+          in: query
+          description: searchby
+          required: false
+          type: string
+        -
+          name: searchvalue
+          in: query
+          description: searchvalue
+          required: false
+          type: string
+        -
+          name: q
+          in: query
+          description: q
+          required: false
+          type: string
+        -
+          name: active
+          in: query
+          description: active
+          required: false
+          type: string
+        -
+          name: citycode
+          in: query
+          description: city code
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Not Found'
+</pre></code>
+</p>
+</details>
+
+<details>
+<summary>Look Up Countries</summary>
+<p>
+<code><pre>
+/locationservices/v1/countries:
+    get:
+      tags:
+        - locationservices
+      summary: 'API to get a list of countries'
+      operationId: getlocationserviceslookupcountries
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        -
+          name: api_key
+          in: query
+          description: api_key
+          required: true
+          type: string
+        -
+          name: searchby
+          in: query
+          description: searchby
+          required: false
+          type: string
+        -
+          name: q
+          in: query
+          description: q
+          required: false
+          type: string
+        -
+          name: active
+          in: query
+          description: active
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Not Found'
+</pre></code>
+</p>
+</details>
+
+<details>
+<summary>Look Up States</summary>
+<p>
+<code><pre>
+/locationservices/v1/states:
+    get:
+      tags:
+        - locationservices
+      summary: 'API to get a list of states'
+      operationId: getlocationserviceslookupstates
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        -
+          name: api_key
+          in: query
+          description: api_key
+          required: true
+          type: string
+        -
+          name: cc
+          in: query
+          description: cc
+          required: false
+          type: string
+        -
+          name: searchby
+          in: query
+          description: searchby
+          required: false
+          type: string
+        -
+          name: q
+          in: query
+          description: q
+          required: false
+          type: string
+        -
+          name: active
+          in: query
+          description: active
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Not Found'
+</pre></code>
+</p>
+</details>
+
+<details>
+<summary>Validate Zip Code</summary>
+<p>
+<code><pre>
+/locationservices/v1/zip:
+    get:
+      tags:
+        - locationservices
+      summary: 'API to validate zip codes'
+      operationId: getlocationservicesvalidatezip
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        -
+          name: api_key
+          in: query
+          description: api_key
+          required: true
+          type: string
+        -
+          name: zip
+          in: query
+          description: zip
+          required: true
+          type: string
+        -
+          name: citycode
+          in: query
+          description: city code
+          required: false
+          type: string
+        -
+          name: countycode
+          in: query
+          description: county code
+          required: false
+          type: string
+        -
+          name: statecode
+          in: query
+          description: statecode
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Not Found'
+</pre></code>
+</p>
+</details>
+
+<h2 id="http-response-codes">HTTP Response Codes</h2>
+
+<p>200 - Success</p>
+
+<p>401 – Unauthorized</p>
+
+<p>403 – Forbidden</p>
+
+<p>404	– Not Found</p>
+
+<h2 id="faq">FAQ</h2>
+
+<p><small><a href="#">Back to top</a></small></p>
+
+<h2 id="contact-us">Contact Us</h2>
+
+<ul>
+  <li>Reach out to the beta.sam.gov team at <a href="https://www.fsd.gov">www.fsd.gov</a></li>
+</ul>
+
+<h2 id="change-log">Change Log</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Version</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4/21/2020</td>
+      <td>v1.0</td>
+      <td>Base Version</td>
+    </tr>
+    <tr>
+      <td>5/11/2020</td>
+      <td>v1.1</td>
+      <td>OpenAPI Specification File Added</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><small><a href="#">Back to top</a></small></p>
+
+</div>
+
+  </section>
+  <div class="fixed-page-height"></div>
+</main>
+</div>
+        <div id="footer">  <footer class="usa-footer usa-background-dark">
+    <div class="usa-grid">
+      <nav>
+        <div class="usa-width-one-fourth">
+          <h3>Work</h3>
+          <ul class="usa-unstyled-list">
+            <li><a href="/about">About us</a></li>
+            <li><a href="https://github.com/GSA/">Our projects</a></li>
+          </ul>
+        </div>
+        <div class="usa-width-one-fourth">
+          <h3>Open Source</h3>
+          <ul class="usa-unstyled-list">
+            <li><a href="https://github.com/gsa/open-gsa-redesign">Edit this site</a></li>
+<!--            <li><a href="https://github.com/gsa/open-gsa-redesign/issues">Submit feedback</a></li> -->
+          </ul>
+        </div>
+        <div class="usa-width-one-fourth">
+          <!-- <h3>Contact Us</h3>
+          <ul class="usa-unstyled-list">
+            <li><a href="mailto:cto@gsa.gov">Email us</a></li> -->
+        </div>
+        <div class="usa-footer-logo usa-width-one-fourth">
+          
+          
+            <p><img src="/assets/img/gsa-logo-dark.jpg" alt="GSA" class="logo"></p>
+          
+        </div>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+    </div>
+      <script src="/assets/js/lib/jquery.min.js"></script>
+<script src="/assets/js/lib/details-polyfill.js"></script>
+<script async src="/assets/uswds/js/uswds.js"></script>
+<script src="https://use.fontawesome.com/2982e64340.js"></script>
+<!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=CTO&sitetopic=IT&sp=term&dclink=true&enhlink=true&cto=12" id="_fed_an_ua_tag"></script>
+
+</body>
+
+</html>
