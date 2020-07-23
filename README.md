@@ -7,7 +7,7 @@ Currently, the Bot is trained to answer Beta SAM API related questions. For exam
 ![Alt text](ui/images/Codeathon-Architecture.png?raw=true "Title")
 
 ## Part 1. Chatbot Angular Application
-The UI prt of the project contains Chatbot written in Angular
+The UI prt of the project contains Chatbot written in Angular. You may learn more about the design of the App [here](ui/README.md).
 
 ##### Requirements
 * Node
@@ -24,6 +24,9 @@ Download or clone this repository.
 2. `ui$ npm run start` to start the local server
 
 Navigate to `localhost:4200` in any browser to view the site.
+
+The Chatbot Angular App is deployed as Elastic Beanstalk application in Docker container environment. Go ahead and check the Bot at http://codeathon.us-east-1.elasticbeanstalk.com/
+
 
 ## Part 2. Chatbot Backend Service as AWS Lambda Function
 The API part of the project contains lambda function code and supporting resources:
