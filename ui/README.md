@@ -29,10 +29,6 @@ The chatbot component requires a ChatbotService Input which provides the chatbot
 
 The beta.SAM chatbot implements a BSAMChatbotService which calls the Amazon Web Services (AWS) hosted API service.
 
-### Security - Input Sanitization
-
-Chat messages from the user and from the chatbot response are sanitized before being rendered on the UI via the Angular DomSanitizer.  This is a security feature that sanitizes values so they are safe to use when displaying the messages.  This is achieved by using the [innerHTML] tag.
-
 ### Standards and Readability
 
 The project uses the @gsa-sam/sam-styles and U.S. Web Design System (USWDS) packages.  All style classes used are from sam-styles and USWDS with no inline style tags.  Icons used are from the sam-styles and FontAwesome libraries.  
@@ -40,6 +36,10 @@ The project uses the @gsa-sam/sam-styles and U.S. Web Design System (USWDS) pack
 Visual indicators such as a spinning loading icon are supplemented with hidden text for screen readers via the *usa-sr-only* style class.
 
 A linter tool was used to analyze the source code to flag readability, maintainability, and functionality errors.  All findings were remediated.
+
+### Security - Input Sanitization
+
+Chat messages from the user and from the chatbot response are sanitized before being rendered on the UI via the Angular DomSanitizer.  This is a security feature that sanitizes values so they are safe to use when displaying the messages.  This is achieved by using the [innerHTML] tag.
 
 ### Class Diagram
 
