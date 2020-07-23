@@ -9,8 +9,8 @@ Resources:
       Handler: com.bsam.chatbot.HandlerKendra
       Runtime: java8
       Description: Java function
-      MemorySize: 512
-      Timeout: 10
+      MemorySize: 1024
+      Timeout: 30
       # Function's execution role
       Policies:
         - AWSLambdaBasicExecutionRole
