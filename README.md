@@ -4,9 +4,9 @@ This is the Beta.SAM Chatbot where users can ask questions. The Chatbot will be 
 ## Value Impact
 It is difficult for a user to find information across an extensive collection of documents and data in various systems.
 
-Having a chatbot which can answer user questions will allow users to quickly find the information they need. This will result in an immediate reduction in Tier 1 Help Desk tickets.
+Having a Chatbot which can answer user questions will allow users to quickly find the information they need. This will result in an immediate reduction in Tier 1 Help Desk tickets.
 
-Currently, the Bot is trained to answer beta.SAM API related questions by ingesting API documentation and FAQs. For example, you can ask "What is EM API?".
+Currently, the Chatbot is trained to answer Beta.SAM API related questions by ingesting API documentation and FAQs. For example, you can ask "What is EM API?".
 
 ## Architecture of the Beta.SAM Chatbot
 ![Alt text](ui/docs/img/Architecture.png?raw=true "Title")
@@ -18,7 +18,7 @@ The UI part of the project contains Chatbot written in Angular. You may learn mo
 * Node
 * Angular CLI
 
-##### Setup for the chatbot App
+##### Setup for the Chatbot App
 Download or clone this repository.
 ```
  $ git clone https://github.com/rinktel-git/bsam-chatbot.git
