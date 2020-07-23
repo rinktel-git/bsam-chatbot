@@ -7,7 +7,7 @@ Currently, the Bot is trained to answer Beta SAM API related questions. For exam
 ![Alt text](ui/images/Codeathon-Architecture.png?raw=true "Title")
 
 ## Part 1. Chatbot Angular Application
-The UI prt of the project contains Chatbot written in Angular. You may learn more about the design of the App [here](ui/README.md).
+The UI part of the project contains Chatbot written in Angular. You may learn more about the design of the App [here](ui/README.md).
 
 ##### Requirements
 * Node
