@@ -39,7 +39,8 @@ export class BSAMChatbotService implements ChatbotService {
 
     // Text
     if (this.hasValue(apiResponse.resultText)) {
-      strResponse += apiResponse.resultText;
+      const text = this.stripExtraNewlines(apiResponse.resultText);
+      strResponse += text;
       if (this.hasValue(apiResponse.documentLink)) {
         // Indicates an excerpt, so add ... at the end
         strResponse += '...';
@@ -49,7 +50,7 @@ export class BSAMChatbotService implements ChatbotService {
     // Document
     if (this.hasValue(apiResponse.documentLink)) {
       if (strResponse.length > 0) {
-        strResponse += '\n\n';
+        strResponse += '\n';
       }
 
       const info = 'Please open the document below for more information:';
@@ -57,7 +58,7 @@ export class BSAMChatbotService implements ChatbotService {
       const docTitle = this.hasValue(apiResponse.documentTitle) ? apiResponse.documentTitle : 'External Link';
 
       // tslint:disable-next-line: max-line-length
-      const template = `<div class="usa-link-wrapper"><p>${info}</p><p><a class="usa-link" href="${docLink}" target="_blank">${docTitle}</a></p></div>`;
+      const template = `<div class="usa-link-wrapper"><p class="text-italic">${info}</p><p><a class="usa-link" href="${docLink}" target="_blank">${docTitle}</a></p></div>`;
       // <i class="fas fa-external-link-alt fa-xs"></i></a>
       // <fa-icon [icon]="['fas', 'external-link-alt']" size="xs">
 
@@ -65,7 +66,7 @@ export class BSAMChatbotService implements ChatbotService {
 
     } else if (this.hasValue(apiResponse.documentTitle)) {
       if (strResponse.length > 0) {
-        strResponse += '\n\n';
+        strResponse += '\n';
       }
       strResponse += apiResponse.documentTitle;
     }
@@ -74,5 +75,10 @@ export class BSAMChatbotService implements ChatbotService {
 
   private hasValue(str: string) {
     return str !== undefined && str != null && str.length > 0;
+  }
+
+  private stripExtraNewlines(text) {
+    // Replace two newlines with one newline
+    return text.replace(/\n{2,}/g, '\n');​​​​​​​
   }
 }
