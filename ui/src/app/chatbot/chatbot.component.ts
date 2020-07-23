@@ -45,6 +45,10 @@ export class ChatbotComponent implements OnInit {
   }
 
   addUserMessage() {
+    if (this.userQuestion === undefined || this.userQuestion == null || this.userQuestion.trim().length === 0) {
+      return;
+    }
+
     const userQuery = this.userQuestion;
     this.messages.push({ type: MESSAGE_TYPE.USER, text: userQuery });
     this.userQuestion = '';
