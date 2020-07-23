@@ -33,7 +33,7 @@ The API part of the project contains lambda function code and supporting resourc
 
 * `src/main `- A Java function.
 * `src/test` - A unit test and helper classes.
-* `template.yml` - An AWS CloudFormation template that creates an application.
+* `template-mvn.yml` - An AWS CloudFormation template that creates an application.
 * `pom.xml` - A Maven build file.
 * `1-create-bucket.sh`, `2-deploy.sh`, etc. - Shell scripts that use the AWS CLI to deploy and manage the application.
 
