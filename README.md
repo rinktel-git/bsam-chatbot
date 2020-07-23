@@ -1,5 +1,5 @@
 # bsam-chatbot
-This is BSAM Chatbot app where users can ask questions. Chatbot will be interactive and answers questions using Natural Language Process and Machine Learning. The search is powered by AWS Kendra (https://aws.amazon.com/kendra/).
+This is BSAM Chatbot app where users can ask questions. Chatbot will be interactive and answers questions using Natural Language Process and Machine Learning.
 
 Currently, the Bot is trained to answer Beta SAM API related questions. For example you can ask "What is EM API?".
 
@@ -73,5 +73,6 @@ Chatbot functionality can be expanded to include below :
 My registration status ?  What are the new contract opportunities ?, etc...
 2.	It can be integrated with other IAE systems like sam.gov, fpds.gov, etc.
 3.	It can be made available via mobile app.
+4. Documents to be searched against can be added dynamically by crawling, automatic ingestion, etc. 
 
 
