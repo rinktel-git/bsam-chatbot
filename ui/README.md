@@ -43,6 +43,20 @@ A linter tool was used to analyze the source code to flag readability, maintaina
 
 ![Class Diagram](docs/img/ClassDiagram.png)
 
+### Chatbot Screenshots
+
+#### Desktop
+
+![Start](docs/img/App1.png)
+
+![Enter Query](docs/img/App2.png)
+
+![Response](docs/img/App3.png)
+
+#### Mobile
+
+![Mobile](docs/img/Mobile.png)
+
 
 
 
