@@ -70,7 +70,7 @@ Step 2. To deploy the application, run `2-deploy.sh mvn`.
 This deploy script uses **AWS CloudFormation** (Template file: `template-mvn.yml`) to deploy the Lambda function and an IAM role with necessary permission policies attached.
 
 
-## Part 3. Future capabilities
+## Part 3. Future Capabilities
 
 Chatbot functionality can be expanded to include below :
 
