@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { messageModel, MESSAGE_TYPE } from './message.model';
-import { ChatbotService, ChatbotResponse } from './chatbot-abstract.service';
+import { MessageModel, MESSAGE_TYPE } from './message.model';
+import { ChatbotService } from './chatbot-abstract.service';
 
 @Component({
   selector: 'app-chatbot',
@@ -9,19 +9,33 @@ import { ChatbotService, ChatbotResponse } from './chatbot-abstract.service';
 })
 export class ChatbotComponent implements OnInit {
 
+  /** Instance of a ChatbotService which returns the Chatbot response to the user query */
   @Input() chatbotService: ChatbotService;
-  @Input() labelMyMessages: string = "Me";
-  @Input() labelBotMessages: string = "Bot";
-  @Input() defaultChatPlaceholder: string = "Ask me a question...";
-  @Input() sendButtonText: string = "Send";
-  @Input() initialBotGreeting: string = "<b>Hello!</b> How can I help you today?";
 
-  botServiceErrorMsg: string = "Sorry, the chatbot is unavailable at this time.";
-  botResponseErrorMsg: string = "Sorry, the chatbot is unavailable at this time.";
+  /** Label for the user's messages */
+  @Input() labelMyMessages = 'Me';
+
+  /** Label for the chatbot's messages */
+  @Input() labelBotMessages = 'Bot';
+
+  /** Initial placeholder in the messages input box */
+  @Input() defaultChatPlaceholder = 'Ask me a question...';
+
+  /** Button text to send message to chatbot */
+  @Input() sendButtonText = 'Send';
+
+  /** Initial chatbot greeting at start of conversation */
+  @Input() initialBotGreeting = '<b>Hello!</b> How can I help you today?';
+
+  /** Error message for a chatbot service error */
+  @Input() botServiceErrorMsg = 'Sorry, the chatbot is unavailable at this time.';
+
+  /** Error message for a chatbot response error */
+  @Input() botResponseErrorMsg = 'Sorry, the chatbot is unavailable at this time.';
 
   private userQuestion: string;
-  private isLoading: boolean = false;
-  public messages: messageModel[] = [];
+  private isLoading = false;
+  public messages: MessageModel[] = [];
 
   constructor() {
   }
@@ -31,23 +45,29 @@ export class ChatbotComponent implements OnInit {
   }
 
   addUserMessage() {
-    this.messages.push({ type: MESSAGE_TYPE.USER, text: this.userQuestion });
+    const userQuery = this.userQuestion;
+    this.messages.push({ type: MESSAGE_TYPE.USER, text: userQuery });
     this.userQuestion = '';
 
-    if (this.chatbotService !== undefined && this.chatbotService !== null) {
+    if (this.chatbotService !== undefined && this.chatbotService != null) {
       this.showBotWaitingMessage();
-      setTimeout(() => {
-        //Call API
-        const res: ChatbotResponse = this.chatbotService.getChatbotResponse();
-        let botMsgText = res.responseHTML;
-        this.hideBotWaitingMessage();
-        if (botMsgText !== undefined && botMsgText != null) {
-          this.addBotMessage(botMsgText);
-        } else {
+
+      this.chatbotService.getChatbotResponse(userQuery).then(
+        (botMsgText) => {
+          // Success
+          this.hideBotWaitingMessage();
+          if (botMsgText !== undefined && botMsgText != null) {
+            this.addBotMessage(botMsgText);
+          } else {
+            this.addBotMessage(this.botResponseErrorMsg);
+          }
+        },
+        (err) => {
+          // Failure
+          this.hideBotWaitingMessage();
           this.addBotMessage(this.botResponseErrorMsg);
-        }
-      },
-        2000);
+        },
+      );
     } else {
       this.addBotMessage(this.botServiceErrorMsg);
     }

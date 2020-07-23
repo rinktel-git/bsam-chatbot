@@ -3,7 +3,7 @@ export enum MESSAGE_TYPE {
     USER = 'user'
 }
 
-export class messageModel {
+export class MessageModel {
     type: MESSAGE_TYPE;
     text: any;
 }

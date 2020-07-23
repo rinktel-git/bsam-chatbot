@@ -2,16 +2,17 @@
 
 <app-header></app-header>
 
-<app-subheader [pageTitle]="title" [buttonNewChatText]="buttonNewChatText" (startNewChatEvent)="startNewChat()">
+<app-subheader [pageTitle]="title" [buttonText]="buttonNewChatText" (buttonClickedEvent)="startNewChat()">
 </app-subheader>
 
 <div id="main-content">
     <div class="grid-container margin-top-3 desktop:margin-top-5 margin-bottom-9">
         <div class="grid-row grid-gap">
             <div class="usa-layout-docs__main desktop:grid-col-12 usa-prose">
-                <app-chatbot [chatbotService]="chatbotService" [labelMyMessages]="labelMyMessages" [labelBotMessages]="labelBotMessages"
-                    [defaultChatPlaceholder]="defaultChatPlaceholder" [sendButtonText]="sendButtonText"
-                    [initialBotGreeting]="initialBotGreeting"></app-chatbot>
+                <app-chatbot [chatbotService]="chatbotService" [labelMyMessages]="labelMyMessages"
+                    [labelBotMessages]="labelBotMessages" [defaultChatPlaceholder]="defaultChatPlaceholder"
+                    [sendButtonText]="sendButtonText" [initialBotGreeting]="initialBotGreeting"
+                    [botServiceErrorMsg]="botServiceErrorMsg" [botResponseErrorMsg]="botResponseErrorMsg"></app-chatbot>
             </div>
         </div>
     </div>

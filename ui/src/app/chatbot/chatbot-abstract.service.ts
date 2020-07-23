@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 
-export interface ChatbotResponse {
-    responseHTML: string;
-}
-
 @Injectable()
 export abstract class ChatbotService {
   /**
-   * Returns response from Chatbot
+   * Abstract service class to return the response from the Chatbot
+   *
+   * Implement the ChatbotService and pass an instance of your service as the "chatbotService" Input to the chatbot component
    */
-  abstract getChatbotResponse(): ChatbotResponse;
+  abstract async getChatbotResponse(userQuery: string): Promise<string>;
 }
