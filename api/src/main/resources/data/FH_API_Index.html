@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Beta.SAM.Gov Federal Hierarchy Public API | GSA Open Technology</title>
+  <meta name="description" content="Overview">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Beta.SAM.Gov Federal Hierarchy Public API | GSA Open Technology" />
+  <meta name="twitter:title" content="Beta.SAM.Gov Federal Hierarchy Public API | GSA Open Technology">
+  <meta property="og:url" content="https://open.gsa.gov/api/fh-public-api/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://open.gsa.gov/assets/img/feature-background.jpg">
+  <meta name="twitter:image" content="https://open.gsa.gov/assets/img/feature-background.jpg">
+  <meta property="og:description" content="Overview">
+  <meta name="twitter:description" content="Overview">
+  <meta name="google-site-verification" content="1mdRfaEaI19uCixYkGGmRsv2iA_si1n44fNtk4jzixQ" />
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+  <link rel="canonical" href="https://open.gsa.gov/api/fh-public-api/">
+
+  <script>
+    if (/^www\./.test(window.location.hostname)) {
+      window.location = window.location.href.replace('www.', '');
+    }
+  </script>
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <div id="header"><div class="skip-nav">
+    <a href="#content" class="skips">Skip to main content</a>
+</div>
+
+<header class="usa-header usa-header-extended" role="banner">
+  <!-- Gov banner BEGIN -->
+<div class="usa-banner">
+<div class="usa-accordion">
+  <header class="usa-banner-header">
+    <div class="usa-grid usa-banner-inner">
+    <img src="/assets/uswds/img/favicons/favicon-57.png" alt="U.S. flag">
+    <p>An official website of the United States government</p>
+    <button class="usa-accordion-button usa-banner-button"
+      aria-expanded="false" aria-controls="gov-banner">
+      <span class="usa-banner-button-text">Here's how you know</span>
+    </button>
+    </div>
+  </header>
+  <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+    <div class="usa-banner-guidance-gov usa-width-one-half">
+      <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-dot-gov.svg" alt="Dot gov">
+      <div class="usa-media_block-body">
+        <p>
+          <strong>The .gov means it’s official.</strong>
+          <br>
+          Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.
+        </p>
+      </div>
+    </div>
+    <div class="usa-banner-guidance-ssl usa-width-one-half">
+      <img class="usa-banner-icon usa-media_block-img" src="/assets/uswds/img/icon-https.svg" alt="SSL">
+      <div class="usa-media_block-body">
+        <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Gov banner END -->
+    <nav class="usa-site-navbar">
+                    <div class="usa-grid top-nav">
+                        <div id="logo">
+                            <a href="/" accesskey="1" title="Home" aria-label="Home">
+          
+            <img class="header-logo" src="/assets/img/site-logo.png" alt="GSA Open Technology">
+          
+        </a>
+                        </div>
+                        <ul class="usa-nav-list usa-unstyled-list">
+                          <li class="usa-menu-item"><a href="/search.html"> <i class="fa fa-search"></i> Search</a></li>
+                          <li class="usa-menu-item"><a href="/data">Data</a></li>
+                          <li class="usa-menu-item"><a href="/api">APIs</a></li>
+                          <li class="usa-menu-item"><a href="/code">Code</a></li>
+                          <li class="usa-menu-item"><a href="/events">Events</a></li>
+                        </ul>
+                        <!-- <ul class="usa-nav-list usa-unstyled-list">
+                          <li class="usa-menu-item"><a href="/search"> <i class="fa fa-search"></i> Search</a></li>
+                                
+                            <li class="usa-menu-item">
+                                <a href="/data/">Data</a>
+                            </li>
+                              
+                            <li class="usa-menu-item">
+                                <a href="/api/">APIs</a>
+                            </li>
+                              
+                            <li class="usa-menu-item">
+                                <a href="/code/">Code</a>
+                            </li>
+                              
+                            <li class="usa-menu-item">
+                                <a href="/events/">Events</a>
+                            </li>
+                             
+                            </ul> -->
+
+                    </div>
+        <br/>
+
+    </nav>
+</header>
+</div>
+        <div id="content">
+  <section class="usa-section usa-section-dark banner-header">
+    <div class="usa-grid">
+        <div class="usa-width-one-whole usa-end-row">
+            <h2>Beta.SAM.Gov Federal Hierarchy Public API</h2>  
+        </div>
+    </div>
+</section>
+
+
+
+<main class="usa-grid" id="main" tabindex="-1">
+  <section>
+    <aside class="usa-width-one-fourth sidebar-sticky" style="word-wrap: break-word;">
+  <ul class="usa-sidenav-list">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#getting-started">Getting Started</a></li>
+<li class="toc-entry toc-h2"><a href="#authentication-and-api-keys">Authentication and API Keys</a>
+<ul class="usa-sidenav-sub_list">
+<li class="toc-entry toc-h4"><a href="#user-account-api-key-creation">User Account API Key Creation</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#federal-hierarchy-public-api-request-parameters">Federal Hierarchy Public API Request Parameters</a>
+<ul class="usa-sidenav-sub_list">
+<li class="toc-entry toc-h3"><a href="#for-request-uri-orgsapi_keykey">For Request URI: /orgs?api_key=[key]</a></li>
+<li class="toc-entry toc-h3"><a href="#for-request-url-orghierarchyorgkeyorgkeyapi_keykey">For Request URL: /org/hierarchy?orgkey=[orgkey]&amp;api_key=[key]</a></li>
+<li class="toc-entry toc-h3"><a href="#federal-hierarchy-public-api-response-parameters">Federal Hierarchy Public API Response Parameters</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a>
+<ul class="usa-sidenav-sub_list">
+<li class="toc-entry toc-h3"><a href="#example-response-schema-structure">Example response schema structure</a></li>
+<li class="toc-entry toc-h3"><a href="#example-1-search-by-organization-name">Example 1: Search by organization name</a></li>
+<li class="toc-entry toc-h3"><a href="#example-2-search-for-an-active-organization-of-type-sub-tier">Example 2: Search for an active organization of type Sub-Tier</a></li>
+<li class="toc-entry toc-h3"><a href="#example-3-get-hierarchy-for-an-organization">Example 3: Get hierarchy for an organization</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#openapi-specification-file">OpenAPI Specification File</a></li>
+<li class="toc-entry toc-h2"><a href="#http-response-codes">HTTP Response Codes</a></li>
+<li class="toc-entry toc-h2"><a href="#error-messages">Error Messages</a></li>
+<li class="toc-entry toc-h2"><a href="#faq">FAQ</a></li>
+<li class="toc-entry toc-h2"><a href="#contact-us">Contact Us</a></li>
+<li class="toc-entry toc-h2"><a href="#change-log">Change Log</a></li>
+</ul>
+</aside>
+
+<div class="usa-width-three-fourths">
+  <h2 id="overview">Overview</h2>
+
+<p>Federal Hierarchy public API allows non-federal users to obtain Federal Organization details. As part of this API, organization information for first 2 levels (Departments/Ind. Agency and SubTier) is provided by default.</p>
+
+<p><em>Note : The term “organization” as used in the Federal Hierarchy FOUO API denotes any Departments/Independent Agencies and Sub-Tiers</em></p>
+
+<p>This API will return both active and inactive organizations. The API supports pagination with a default of 10 records and a max 100 records.</p>
+
+<p><strong>API Version: v1.0</strong></p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Get Opportunities API can be accessed from Beta or Alpha via the following environments:</p>
+
+<p><em>Note: Please refer the examples below to format right request URLs.</em></p>
+
+<ul>
+  <li>Production URL: https://api.sam.gov/prod/federalorganizations/v1/</li>
+  <li>Staging URL: https://api-alpha.sam.gov/prodlike/federalorganizations/v1</li>
+</ul>
+
+<h2 id="authentication-and-api-keys">Authentication and API Keys</h2>
+<p>User of this public API must provide an API key to use this Opportunities public API. Request per day are limited based on the federal or non-federal or general roles.</p>
+
+<p>Note:</p>
+<ul>
+  <li>For production, users can request an API Key in their Profile under Account Details on https://beta.sam.gov/</li>
+  <li>For prodlike, users can request an API Key in their Profile under Account Details on https://alpha.sam.gov/</li>
+</ul>
+
+<h4 id="user-account-api-key-creation">User Account API Key Creation</h4>
+<ul>
+  <li>Registered user can request for a public API on ‘Account Details’ page. This page can be accessed on Account Details page on beta.sam.gov</li>
+  <li>User must enter account password on ‘Account Details’ page to view the API Key information. If an incorrect password is entered, an error will be returned.</li>
+  <li>After the API Key is generated on ‘Account Details’ page, the API Key can be viewed on the Account Details page immediately. The API Key is visible until user navigates to a different page.</li>
+  <li>If an error is encountered during the API Key generation/retrieval, then user will receive an error message and must try again.</li>
+</ul>
+
+<h2 id="federal-hierarchy-public-api-request-parameters">Federal Hierarchy Public API Request Parameters</h2>
+
+<h3 id="for-request-uri-orgsapi_keykey">For Request URI: /orgs?api_key=[key]</h3>
+
+<ul>
+  <li>Users can search on any of the following fields.</li>
+  <li>None of these fields are mandatory.</li>
+  <li>Results will be sorted on level &amp; fhorgname in ascending order.</li>
+</ul>
+
+<p><strong>Table 1: FH Public API Request Parameters For request URL</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request Parameters that API accepts</th>
+      <th>Description</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fhorgid</td>
+      <td>Unique ID for an organization in Federal Hierarchy</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhorgname</td>
+      <td>Name of an organization in Federal Hierarchy. This name is specific to Federal Hierarchy.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Status of the Organization: <br /> Active <br /> Inactive</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhorgtype</td>
+      <td>Type of an organization in Federal Hierarchy <br /> Valid values are : <br /> Department/Ind. agency <br /> Sub-Tier</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>agencycode</td>
+      <td>Identifier that represents either a department or a sub-tier created in the Federal Procurement Data System (FPDS).</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>oldfpdsofficecode</td>
+      <td>Office code for offices created before 04/01/2016 in FPDS.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>cgac</td>
+      <td>Common Government-wide Accounting Classification (CGAC) Agency Code. This field can accommodate multiple, comma separated values. <br /><br /> Note: This API only supports one CGAC per record at this time. In a future version, this API will be enhanced to support multiple CGACs.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhparentorgname</td>
+      <td>Federal Hierarchy Parent Organization name for the current record.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>updatedby</td>
+      <td>User who updated an organization’s details, e.g. Federal Hierarchy administrator. <br /><br />Note: Currently, this field shows a combination of system name and user’s first and last name. In future, this field will display first and last name of a federal hierarchy administrator updating the details using the Federal Hierarchy tool.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>updateddatefrom</td>
+      <td>A field to specify the starting range of updated date of an organization Format should be YYYY-MM-DD</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>updateddateto</td>
+      <td>A field to specify the end range of updated date of an organization Format should be YYYY-MM-DD</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>createdby</td>
+      <td>User who created an organization in the Federal Hierarchy, e.g. Federal Hierarchy Administrator.<br /><br /> Note: Currently, this field shows a combination of system name and user’s first and last name. In future, this field will display first and last name of a federal hierarchy administrator updating the details using Federal Hierarchy tool.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>createddatefrom</td>
+      <td>A field to specify the starting range of created date of an organization Format should be YYYY-MM-DD</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>createddateto</td>
+      <td>A field to specify the end range of created date of an organization Format should be YYYY-MM-DD</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>Total number of records to be retrieved per page. This field must be a positive number equal to 100 or less. If this field is not provided, the default pagesize is 10. Maximum supported page size will be 100.</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>offset</td>
+      <td>Indicates the page index. Default offset starts with 0.</td>
+      <td>Number</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="for-request-url-orghierarchyorgkeyorgkeyapi_keykey">For Request URL: /org/hierarchy?orgkey=[orgkey]&amp;api_key=[key]</h3>
+
+<ul>
+  <li>Users can retrieve immediate next level hierarchy organizations for the respective
+organization.</li>
+  <li>Results will be sorted on level and fhorgname in ascending order.</li>
+</ul>
+
+<p><strong>Table 2: FH Public API Request Parameters For request URL</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request Parameters that API accepts</th>
+      <th>Description</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fhorgid</td>
+      <td>Unique ID for an organization in Federal Hierarchy. Mandatory to bring its children; Returns status 400 if children not available</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>Total number of records to be retrieved per page. This field must be a number. If this field is not provided, by default page size is 10. Maximum supported page size will be 100.</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>offset</td>
+      <td>Indicates the page index. Default offset starts with 0.</td>
+      <td>Number</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="federal-hierarchy-public-api-response-parameters">Federal Hierarchy Public API Response Parameters</h3>
+
+<p>Based on the request parameters, API provides below response parameters.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request Parameters that API accepts</th>
+      <th>Description</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>totalrecords</td>
+      <td>Total number of records in the response</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>fhorgid</td>
+      <td>Unique ID for an organization in Federal Hierarchy.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhorgname</td>
+      <td>Name of an organization in Federal Hierarchy. This name is specific to Federal Hierarchy.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Status of the Organization: <br /> Active <br /> Inactive</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhorgtype</td>
+      <td>Type of an organization in Federal Hierarchy <br /> Valid values are : <br /> Department/Ind. agency <br /> Sub-Tier</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>agencycode</td>
+      <td>Identifier that represents either a department or a sub-tier created in the Federal Procurement Data System (FPDS).</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>oldfpdsofficecode</td>
+      <td>Office code for offices created before 04/01/2016 in FPDS.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>cgaclist</td>
+      <td>An array of Common Government-wide Accounting Classification (CGAC) Agency Codes. This field can accommodate multiple, comma separated values. <br /><br /> Note: This API only supports one CGAC per record at this time. In a future version, this API will be enhanced to return multiple CGACs per record.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>lastupdateddate</td>
+      <td>Date the organization was last updated in the Federal Hierarchy.</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>createdby</td>
+      <td>User who created the organization, e.g. the Federal Hierarchy Administrator.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>updatedby</td>
+      <td>User who updated an organization’s details, e.g. Federal Hierarchy administrator.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>createddate</td>
+      <td>Date the organization was created in the Federal Hierarchy.</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>fhdeptindagencyorgid</td>
+      <td>Federal Hierarchy Identifier of a Department/Ind. agency to which the current record belongs to.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhagencyorgname</td>
+      <td>Name of a department/Ind. agency in Federal Hierarchy to the current record belongs to.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhorgnamehistory</td>
+      <td>An array of the current organization name, the date when this name became effective, previous name/s (if available) and date when that name became effective. <br /><br />Note: This data may not be currently available in the FH for all records.</td>
+      <td>Array</td>
+    </tr>
+    <tr>
+      <td>fhorgname</td>
+      <td>Current and/or previous name of an organization in the Federal Hierarchy.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>effectivedate</td>
+      <td>Date when the organization was created and the office became effective in the Federal Hierarchy.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhorgparenthistory</td>
+      <td>An array of full parent id, full parent path name and the date when this full parent became effective. This array contains details about current parent and also the previous parents before the organization moved. <br /><br /> Note: Data for moved organizations is currently not available in the FH.</td>
+      <td>Array</td>
+    </tr>
+    <tr>
+      <td>fhfullparentpathid</td>
+      <td>ID of the full parent path for an organization. For example, a sub-tier would have a path of <Org of="" parent="" department="">.<Org of="" parent="" sub-tier=""></Org></Org></td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhfullparentpathname</td>
+      <td>Name of the full parent path for an organization. Example for this field a sub-tier is <Org name="" of="" parent="" department="">.<Org name="" of="" parent="" sub-tier=""></Org></Org></td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>effectivedate</td>
+      <td>Date when the current name or previous names became effective. Currently this field is mapped to the start date of an organization. <br /><br /> Note: Data for moved organization is currently not available in the FH.</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>fhorgmergehistory</td>
+      <td>This is an array containing details about organizations that were merged into the organization. This array contains fhorgid, fhorgname, aaccode, cgaclist, agencycode and effectivedate of the merges. <br /><br /> Note: This data is currently not available in FH.</td>
+      <td>Array</td>
+    </tr>
+    <tr>
+      <td>fhorgid</td>
+      <td>Unique ID for an organization in Federal Hierarchy pre-merge. <br /><br /> Note: This data is currently not available in the FH.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>fhorgname</td>
+      <td>Name of an organization in Federal Hierarchy pre-merge. This name is specific to the Federal Hierarchy. <br /><br />Note: This data is currently not available in FH.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>cgaclist</td>
+      <td>An array of CGACs. If the departments get merged, only this field shows up; agencycode fields will not show up. This is specific to pre-merge.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>agencycode</td>
+      <td>Identifier that represents either a department or a sub-tier created in FPDS. This is specific to pre-merge. If the sub-tiers get merged, only this field and cgaclist show up</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>effectivedate</td>
+      <td>Date when the merge became effective in the Federal Hierarchy.</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>links</td>
+      <td>This is an array consisting of <br />1) “rel: self” which is a self-link to the</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Organization itself <br /> 2) “rel: nextLevelChildren” which is a link to the next level of the Organization’s</td>
+      <td>hierarchy</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="example-response-schema-structure">Example response schema structure</h3>
+
+<p><em>Note: Below response is given as an example that shows all the response fields with
+dummy data. Please refer to examples covered in 4.2, 4.3 and 4.4 for the actual response
+from this API</em></p>
+
+<details>
+    <summary>Response Schema Structure</summary>
+
+<p>
+<code><pre>
+{
+ "totalrecords": 35,
+ "orglist": [
+{
+ "fhorgid": 100525425,
+ "fhorgname": "AFRICAN DEVELOPMENT FUND",
+ "fhorgtype": "Sub-Tier",
+ "status": "ACTIVE",
+ "createdby": "FPDSADMIN",
+ "createddate": "2005-07-21 00:00",
+ "updatedby": "FH_Job",
+ "lastupdateddate": "2018-07-05 14:22",
+ "fhdeptindagencyorgid": 100041854,
+ "fhagencyorgname": "EXECUTIVE OFFICE OF THE PRESIDENT",
+ "agencycode": "11DB",
+ "oldfpdsofficecode": "11DB",
+ "cgaclist": [
+ {
+ "cgac": "011"
+ }
+ ],
+ "fhorgnamehistory": [ 
+Federal Hierarchy Public API
+
+ 8
+ {
+ "fhorgname": "AFRICAN DEVELOPMENT FUND",
+ "effectivedate": "2003-06-07 00:00"
+ }
+ ],
+ "fhorgparenthistory": [
+ {
+ "fhfullparentpathid": "100041854.100525425",
+ "fhfullparentpathname": "EXECUTIVE OFFICE OF THE
+PRESIDENT.AFRICAN DEVELOPMENT FUND",
+ "effectivedate": "2003-06-07 00:00"
+ }
+ ],
+ "links": [
+ {
+ "rel": "self",
+ "href": "https://***REMOVED***/comp/federalorganizations/v1/orgs?fhorgid=100525425"
+ }
+ ]
+ }
+} 
+</pre></code>
+</p>
+</details>
+
+<h3 id="example-1-search-by-organization-name">Example 1: Search by organization name</h3>
+
+<p>Request URL:</p>
+
+<p>https://api-alpha.sam.gov/prodlike/federalorganizations/v1/orgs?limit=10&amp;api_key={User’s Public
+API Key}&amp;fhorgname=DEVELOPMENT</p>
+
+<p><em>Note: Request URL used in this example is a staging URL</em></p>
+
+<details>
+    <summary>Response (JSON Output)</summary>
+
+*Note: By default, 10 records will be returned unless otherwise specified with a max limit 100 records. Response for one record is provided as an example* <br />
+
+<p>
+<code><pre>
+{
+ "totalrecords": 35,
+ "orglist": [
+ {
+ "fhorgid": 100148640,
+ "fhorgname": "AGENCY FOR INTERNATIONAL DEVELOPMENT", 
+ "fhorgtype": "Department/Ind. Agency",
+ "status": "ACTIVE",
+ "createddate": "2005-07-21 00:00",
+ "lastupdateddate": "2006-03-31 00:00",
+ "fhdeptindagencyorgid": 100148640,
+ "fhagencyorgname": "AGENCY FOR INTERNATIONAL DEVELOPMENT",
+ "agencycode": "7200",
+ "oldfpdsofficecode": "7200",
+ "cgaclist": [
+ {
+ "cgac": "072"
+ }
+ ],
+ "fhorgnamehistory": [
+ {
+ "fhorgname": "AGENCY FOR INTERNATIONAL DEVELOPMENT",
+ "effectivedate": null
+ }
+ ],
+ "fhorgparenthistory": [
+ {
+ "fhfullparentpathid": "100148640",
+ "fhfullparentpathname": "AGENCY FOR INTERNATIONAL DEVELOPMENT",
+ "effectivedate": null
+ }
+ ],
+ "links": [
+ {
+ "rel": "self",
+ "href": "https://apialpha.sam.gov/prodlike/federalorganizations/v1/orgs?fhorgid=100148640"
+ },
+ {
+ "rel": "nextlevelchildren",
+ "href": "https://apialpha.sam.gov/prodlike/federalorganizations/v1/org/hierarchy?fhorgid=100148640"
+ }
+ ]
+ }, 
+ </pre></code>
+</p>
+</details>
+
+<h3 id="example-2-search-for-an-active-organization-of-type-sub-tier">Example 2: Search for an active organization of type Sub-Tier</h3>
+
+<p>Request URL:</p>
+
+<p>https://api-alpha.sam.gov/prodlike/federalorganizations/v1/orgs?limit=10&amp;api_key={User’s Public
+API Key}&amp;status=active&amp;fhorgtype=Sub-Tier</p>
+
+<p><em>Note: Request URL used in this example is a staging URL</em></p>
+
+<details>
+    <summary>Response (JSON Output)</summary>
+
+*Note: By default, 10 records will be returned unless otherwise specified with a max limit 100 records. Response for one record is provided as an example* <br />
+
+<p>
+<code><pre>
+{
+ "totalrecords": 1021,
+ "orglist": [
+ {
+ "fhorgid": 300000352,
+ "fhorgname": "ACADEMIC IMPROVEMENT AND TEACHER QUALITY
+PROGRAMS",
+ "fhorgtype": "Sub-Tier",
+ "status": "ACTIVE",
+ "createdby": "IAE_DATA_TEAM",
+ "createddate": "2017-10-11 14:09",
+ "fhdeptindagencyorgid": 100001616,
+ "fhagencyorgname": "EDUCATION, DEPARTMENT OF",
+ "agencycode": "9147",
+ "cgaclist": [
+ {
+ "cgac": "091"
+ }
+ ],
+ "fhorgnamehistory": [
+ {
+ "fhorgname": "ACADEMIC IMPROVEMENT AND TEACHER QUALITY
+PROGRAMS",
+ "effectivedate": null
+ }
+ ],
+ "fhorgparenthistory": [
+ {
+ "fhfullparentpathid": "100001616.300000352",
+ "fhfullparentpathname": "EDUCATION, DEPARTMENT OF.ACADEMIC
+IMPROVEMENT AND TEACHER QUALITY PROGRAMS",
+ "effectivedate": null
+ }
+ ],
+ "links": [ 
+ {
+ "rel": "self",
+ "href": "https://api-alpha.sam.gov/prodlike
+/federalorganizations/v1/orgs?fhorgid=300000352"
+ }
+ ]
+ }, 
+ </pre></code>
+</p>
+</details>
+
+<h3 id="example-3-get-hierarchy-for-an-organization">Example 3: Get hierarchy for an organization</h3>
+
+<p>Request URL:</p>
+
+<p>https://api-alpha.sam.gov/prodlike/federalorganizations/v1/org/hierarchy?limit=10&amp;api_key={User’s Public API Key}&amp;fhorgid=100006688</p>
+
+<p><em>Note: Request URL used in this example is a staging URL</em></p>
+
+<details>
+    <summary>Response (JSON Output)</summary>
+
+<p>
+<code><pre>
+{
+ "totalrecords": 1,
+ "orglist": [
+ {
+ "fhorgid": 100006688,
+ "fhorgname": "GENERAL SERVICES ADMINISTRATION",
+ "fhorgtype": "Department/Ind. Agency",
+ "status": "ACTIVE",
+ "createddate": "2003-06-11 00:00",
+ "lastupdateddate": "2003-06-11 00:00",
+ "fhdeptindagencyorgid": 100006688,
+ "fhagencyorgname": "GENERAL SERVICES ADMINISTRATION",
+ "agencycode": "4700",
+ "oldfpdsofficecode": "4700",
+ "cgaclist": [
+ {
+ "cgac": "047"
+ }
+ ],
+ "fhorgnamehistory": [
+ {
+ "fhorgname": "GENERAL SERVICES ADMINISTRATION", 
+ "effectivedate": null
+ }
+ ],
+ "fhorgparenthistory": [
+ {
+ "fhfullparentpathid": "100006688",
+ "fhfullparentpathname": "GENERAL SERVICES ADMINISTRATION",
+ "effectivedate": null
+ }
+ ],
+ "links": [
+ {
+ "rel": "self",
+ "href": " https://apialpha.sam.gov/prodlike/federalorganizations/v1/orgs?fhorgid=100006688"
+ },
+ {
+ "rel": "nextlevelchildren",
+ "href": " https://apialpha.sam.gov/prodlike/federalorganizations/v1/org/hierarchy?fhorgid=100006688"
+ }
+ ]
+ }
+ ]
+} 
+ </pre></code>
+</p>
+</details>
+
+<h2 id="openapi-specification-file">OpenAPI Specification File</h2>
+
+<p>You can view the full details of this API in the OpenAPI Specification file available here:
+<a href="v1/fh-public.zip" download="fh-public">OpenAPI File</a></p>
+
+<details>
+<summary>Public FH Organization</summary>
+<p>
+<code><pre>
+/v1/orgs:
+    get:
+      tags:
+        - Organizations
+      summary: 'PublicAPI - Get organization''s and hierarchy'
+      description: 'PUBLIC API | Returns a org details &amp; hierarchical tree'
+      operationId: getPublicOrgHierarchyUsingGET_1
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        -
+          name: api_key
+          in: query
+          description: 'Enter Public API Key.'
+          required: true
+          type: string
+        -
+          name: fhorgid
+          in: query
+          description: 'Enter fh org id.'
+          required: false
+          type: string
+        -
+          name: fhorgname
+          in: query
+          description: 'Enter fh org name.'
+          required: false
+          type: string
+        -
+          name: fhorgtype
+          in: query
+          description: 'Enter fh org type. Possible values: Department/Ind-agency, Sub-tier.'
+          required: false
+          type: string
+        -
+          name: status
+          in: query
+          description: 'Enter status(active/inactive/all). Default value is active.'
+          required: false
+          type: string
+        -
+          name: agencycode
+          in: query
+          description: 'Enter agency code'
+          required: false
+          type: string
+        -
+          name: oldfpdsofficecode
+          in: query
+          description: 'Enter old fpds office code'
+          required: false
+          type: string
+        -
+          name: cgac
+          in: query
+          description: 'Enter cgac'
+          required: false
+          type: string
+        -
+          name: updatedby
+          in: query
+          description: 'Enter updated by'
+          required: false
+          type: string
+        -
+          name: updateddatefrom
+          in: query
+          description: 'Enter updated date from'
+          required: false
+          type: string
+        -
+          name: updateddateto
+          in: query
+          description: 'Enter updated date to'
+          required: false
+          type: string
+        -
+          name: createdby
+          in: query
+          description: 'Enter created by'
+          required: false
+          type: string
+        -
+          name: createddatefrom
+          in: query
+          description: 'Enter created date from'
+          required: false
+          type: string
+        -
+          name: createddateto
+          in: query
+          description: 'Enter created date to'
+          required: false
+          type: string
+        -
+          name: limit
+          in: query
+          description: 'Enter number of records per page. Default value will be 10.'
+          required: false
+          type: string
+        -
+          name: offset
+          in: query
+          description: "Enter offset value. For example, to retrieve 11 to 20 records\noffset=11 and limit=10. Default offset value is 0."
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Not Found'
+</pre></code>
+</p>
+</details>
+
+<details>
+<summary>Public FH Hierarchy</summary>
+<p>
+<code><pre>
+/v1/org/hierarchy:
+    get:
+      tags:
+        - Organizations
+      summary: 'PublicAPI - Get organization''s and hierarchy'
+      description: 'Public Api | Returns a org details &amp; hierarchical tree'
+      operationId: getPublicOrgHierarchyUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        -
+          name: api_key
+          in: query
+          description: 'Enter the Public API Key.'
+          required: true
+          type: string
+        -
+          name: fhorgid
+          in: query
+          description: 'Enter FH Org ID to search.'
+          required: false
+          type: string
+        -
+          name: limit
+          in: query
+          description: "Enter number of records per page. Default value is 10 &amp; Max allowed\nis 100."
+          required: false
+          type: string
+        -
+          name: offset
+          in: query
+          description: "Enter offset value. For example, to retrieve 11 to 20 records\noffset=11 and limit=10. Default value is 0"
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Not Found'
+</pre></code>
+</p>
+</details>
+
+<h2 id="http-response-codes">HTTP Response Codes</h2>
+
+<ul>
+  <li>200 - Success</li>
+  <li>404 – No Data found</li>
+  <li>400 – Bad Request</li>
+  <li>500 – Internal Server Error</li>
+</ul>
+
+<h2 id="error-messages">Error Messages</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Error Messages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>User enters an invalid date format</td>
+      <td>Invalid date entered. Expected format YYYY-MM-DD</td>
+    </tr>
+    <tr>
+      <td>User enters an invalid value for status</td>
+      <td>Status value must be either Active/Inactive</td>
+    </tr>
+    <tr>
+      <td>For limit or offset, user inputs characters/special characters</td>
+      <td>Limit and offset must be positive number</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="faq">FAQ</h2>
+
+<h2 id="contact-us">Contact Us</h2>
+
+<ul>
+  <li>Reach out to the beta.sam.gov team at <a href="https://www.fsd.gov">www.fsd.gov</a></li>
+</ul>
+
+<h2 id="change-log">Change Log</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Version</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9/10</td>
+      <td>v1.0</td>
+      <td>Base Version</td>
+    </tr>
+    <tr>
+      <td>12/2/2019</td>
+      <td>v1.1</td>
+      <td>Added OpenAPI Specification</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><small><a href="#">Back to top</a></small></p>
+
+</div>
+
+  </section>
+  <div class="fixed-page-height"></div>
+</main>
+</div>
+        <div id="footer">  <footer class="usa-footer usa-background-dark">
+    <div class="usa-grid">
+      <nav>
+        <div class="usa-width-one-fourth">
+          <h3>Work</h3>
+          <ul class="usa-unstyled-list">
+            <li><a href="/about">About us</a></li>
+            <li><a href="https://github.com/GSA/">Our projects</a></li>
+          </ul>
+        </div>
+        <div class="usa-width-one-fourth">
+          <h3>Open Source</h3>
+          <ul class="usa-unstyled-list">
+            <li><a href="https://github.com/gsa/open-gsa-redesign">Edit this site</a></li>
+<!--            <li><a href="https://github.com/gsa/open-gsa-redesign/issues">Submit feedback</a></li> -->
+          </ul>
+        </div>
+        <div class="usa-width-one-fourth">
+          <!-- <h3>Contact Us</h3>
+          <ul class="usa-unstyled-list">
+            <li><a href="mailto:cto@gsa.gov">Email us</a></li> -->
+        </div>
+        <div class="usa-footer-logo usa-width-one-fourth">
+          
+          
+            <p><img src="/assets/img/gsa-logo-dark.jpg" alt="GSA" class="logo"></p>
+          
+        </div>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+    </div>
+      <script src="/assets/js/lib/jquery.min.js"></script>
+<script src="/assets/js/lib/details-polyfill.js"></script>
+<script async src="/assets/uswds/js/uswds.js"></script>
+<script src="https://use.fontawesome.com/2982e64340.js"></script>
+<!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=CTO&sitetopic=IT&sp=term&dclink=true&enhlink=true&cto=12" id="_fed_an_ua_tag"></script>
+
+</body>
+
+</html>
