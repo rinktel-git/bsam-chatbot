@@ -4,7 +4,7 @@ This is BSAM Chatbot app where users can ask questions. Chatbot will be interact
 Currently, the Bot is trained to answer Beta SAM API related questions. For example you can ask "What is EM API?".
 
 ## Architecture of the BSAM Chatbot
-![Alt text](ui/docs/img/Codeathon-Architecture.png?raw=true "Title")
+![Alt text](ui/docs/img/Architecture.png?raw=true "Title")
 
 ## Part 1. Chatbot Angular Application
 The UI part of the project contains Chatbot written in Angular. You may learn more about the technical design of the App [here](ui/README.md).
