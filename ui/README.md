@@ -1,5 +1,7 @@
 # beta.SAM Chatbot
 
+The beta.SAM Chatbot is an Angular chatbot application which allows a user to ask a question and receive a chatbot response. Currently, the chatbot is configured to answer beta.SAM API related questions.
+
 ## Code Modularity
 
 To **modularize** the code the Angular project is organized into the following components:
