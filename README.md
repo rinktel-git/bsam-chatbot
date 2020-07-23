@@ -1,5 +1,10 @@
 # bsam-chatbot
-This is BSAM Chatbot app
+This is BSAM Chatbot app where users can ask questions. Chatbot will be interactive and answers questions using Natural Language Process and Machine Learning. The search is powered by AWS Kendra (https://aws.amazon.com/kendra/).
+
+Currently, the Bot is trained to answer Beta SAM API related questions. For example you can ask "What is EM API?".
+
+## Architecture of the BSAM Chatbot
+![Alt text](ui/images/Codeathon-Architecture.png?raw=true "Title")
 
 ## Chatbot Angular Application
 The UI prt of the project contains Chatbot written in Angular
@@ -10,9 +15,10 @@ The UI prt of the project contains Chatbot written in Angular
 
 ##### Setup for the chatbot App
 Download or clone this repository.
- `$ git clone https://github.com/rinktel-git/bsam-chatbot.git
-  $ cd bsam-chatbot/ui`
-  
+```
+ $ git clone https://github.com/rinktel-git/bsam-chatbot.git
+ $ cd bsam-chatbot/ui
+```
 ##### Serving the app locally
 1. `ui$ npm install` or npm update to make sure you have the latest version of all the packages used in the app.
 2. `ui$ npm run start` to start the local server
@@ -38,21 +44,23 @@ Use the following instructions to deploy the Chatbot lambda function.
 
 ##### Setup for the Lambda function
 Download or clone this repository.
-
- `$ git clone https://github.com/rinktel-git/bsam-chatbot.git
-  $ cd bsam-chatbot/api`
+```
+ $ git clone https://github.com/rinktel-git/bsam-chatbot.git
+ $ cd bsam-chatbot/api
+```
 To create a new bucket for deployment artifacts, `run 1-create-bucket.sh`.
 
 `api$ ./1-create-bucket.sh`
 
 ##### Deploy
 To deploy the application, `run 2-deploy.sh`.
-
-`api$ ./2-deploy.sh
+```
+api$ ./2-deploy.sh
 BUILD SUCCESSFUL in 1s
 Successfully packaged artifacts and wrote output template to file out.yml.
 Waiting for changeset to be created..
 Successfully created/updated stack - codeathon-kendra-search`
+```
 
 You can also build the application with Maven. To use maven, add mvn to the command.
 
