@@ -63,3 +63,15 @@ Step 2. To deploy the application, run `2-deploy.sh mvn`.
 `api$ ./2-deploy.sh mvn`
 
 This deploy script uses **AWS CloudFormation** (Template file: `template-mvn.yml`) to deploy the Lambda function and an IAM role with necessary permission policies attached.
+
+
+## Part 3. Future capabilities
+
+Chatbot functionality can be expanded to include below :
+
+1.	It can be integrated for logged in users so that they can ask questions like:
+My registration status ?  What are the new contract opportunities ?, etc...
+2.	It can be integrated with other IAE systems like sam.gov, fpds.gov, etc.
+3.	It can be made available via mobile app.
+
+
