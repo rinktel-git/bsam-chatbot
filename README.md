@@ -1,7 +1,12 @@
 # bsam-chatbot
-This is BSAM Chatbot app where users can ask questions. Chatbot will be interactive and answers questions using Natural Language Process and Machine Learning.
+This is the beta.SAM Chatbot where users can ask questions. The Chatbot will be interactive and answers questions using Natural Language Process and Machine Learning.
 
-Currently, the Bot is trained to answer Beta SAM API related questions. For example you can ask "What is EM API?".
+## Value Impact
+It is difficult for a user to find information across an extensive collection of documents and data in various systems.
+
+Having a chatbot which can answer user questions will allow users to quickly find the information they need. This will result in an immediate reduction in Tier 1 Help Desk tickets.
+
+Currently, the Bot is trained to answer beta.SAM API related questions by ingesting API documentation and FAQs. For example, you can ask "What is EM API?".
 
 ## Architecture of the BSAM Chatbot
 ![Alt text](ui/docs/img/Architecture.png?raw=true "Title")
