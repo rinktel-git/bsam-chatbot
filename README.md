@@ -51,11 +51,15 @@ Download or clone this repository.
  $ git clone https://github.com/rinktel-git/bsam-chatbot.git
  $ cd bsam-chatbot/api
 ```
-To create a new bucket for deployment artifacts, `run 1-create-bucket.sh`.
+
+##### Deploy the Lambda function
+
+Step 1. To create a new bucket for deployment artifacts, run `1-create-bucket.sh`.
 
 `api$ ./1-create-bucket.sh`
 
-##### Deploy
-To deploy the application, `api$ ./2-deploy.sh mvn`
+Step 2. To deploy the application, run `2-deploy.sh mvn`.
 
-This script uses AWS CloudFormation to deploy the Lambda functions and an IAM role. If the AWS CloudFormation stack that contains the resources already exists, the script updates it with any changes to the template or function code.
+`api$ ./2-deploy.sh mvn`
+
+This deploy script uses **AWS CloudFormation** (Template file: `template-mvn.yml`) to deploy the Lambda function and an IAM role with necessary permission policies attached.
